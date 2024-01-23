@@ -1,0 +1,1 @@
+Stacks are used for doing a lot of operations that contains index order to be maintained.

@@ -1,0 +1,6 @@
+Queues are data structures designed to make sure that we can use First in First out
+
+You can see thier application in the following : 
+
+Sliding Windows
+Streaming Data Problems
