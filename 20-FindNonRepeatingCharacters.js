@@ -5,33 +5,35 @@
 //Solution
 
 
-const nonrepeatingchars = (str) => {
+const nonrepeatingchars = (A) => {
     let q = []
-    let res = ''
-
-    for(let i=0;i<str.length;i++){
+    let map = new Map()
+    let res = ''    
+    for(let i=1;i<A.length;i++){
+        let cur = A[i]
         
-        if(q.length == 0){
-            res+=str[i]
-            q.push(str[i])
+        if(map.has(cur)){
+            map.set(cur, map.get(cur+1))
         }
         else{
-            if(q[0] == str[i]){
-                while(q.length > 0 && q[0] == str[i]){
-                    q.shift()
-                }
-                if(q.length == 0){
-                    res+='#'
-                }
-                else{
-                    res+=q[0]
-                }
+            map.set(cur, 1)
+        }
+        
+        q.push(cur)
+        
+        while(q.length > 0){
+            if(map.has(q[0]) && map.get(q[0]) > 1){
+                q.shift()
             }
             else{
-                res+=q[0]
-                q.push(str[i])
-            }   
+                res += q[0]
+            }
         }
+        
+        if(q.length == 0){
+            res+='#'
+        }
+        
     }
 
     console.log(res)
