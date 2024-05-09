@@ -13,7 +13,7 @@ const nonrepeatingchars = (A) => {
         let cur = A[i]
         
         if(map.has(cur)){
-            map.set(cur, map.get(cur+1))
+            map.set(cur, map.get(cur)+1)
         }
         else{
             map.set(cur, 1)
